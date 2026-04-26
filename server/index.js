@@ -7,9 +7,34 @@ dotenv.config();
 
 const app = express();
 
-// CORS Configuration
+// CORS Configuration - allow all Vercel preview URLs and main domain
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'https://civic-mind-8bup.vercel.app',
+  'https://civic-mind.vercel.app',
+  /^https:\/\/civic-mind-.*\.vercel\.app$/ // Allow all preview deployments
+];
+
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'https://civic-mind-8bup.vercel.app'],
+  origin: (origin, callback) => {
+    // If no origin (same-origin request), allow it
+    if (!origin) return callback(null, true);
+    
+    // Check if origin matches any allowed origin or regex pattern
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (allowed instanceof RegExp) {
+        return allowed.test(origin);
+      }
+      return origin === allowed;
+    });
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
