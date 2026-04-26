@@ -6,7 +6,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:5173'], credentials: true }));
+
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production'
+    ? (process.env.CLIENT_URL || 'http://localhost:3000')
+    : ['http://localhost:3000', 'http://localhost:5173'],
+  credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
