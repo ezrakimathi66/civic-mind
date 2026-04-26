@@ -7,31 +7,32 @@ dotenv.config();
 
 const app = express();
 
-// CORS Configuration - allow all Vercel preview URLs and main domain
+// CORS Configuration - allow localhost, all Vercel deployments, and CLIENT_URL env var
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
-  'https://civic-mind-8bup.vercel.app',
-  'https://civic-mind.vercel.app',
-  /^https:\/\/civic-mind-.*\.vercel\.app$/ // Allow all preview deployments
+  /^https:\/\/.*\.vercel\.app$/, // Allow ALL Vercel deployments
 ];
+
+// Add CLIENT_URL from env if set (e.g. custom domain)
+if (process.env.CLIENT_URL) {
+  allowedOrigins.push(process.env.CLIENT_URL);
+}
 
 const corsOptions = {
   origin: (origin, callback) => {
-    // If no origin (same-origin request), allow it
+    // Allow requests with no origin (mobile apps, curl, Render health checks)
     if (!origin) return callback(null, true);
-    
-    // Check if origin matches any allowed origin or regex pattern
+
     const isAllowed = allowedOrigins.some(allowed => {
-      if (allowed instanceof RegExp) {
-        return allowed.test(origin);
-      }
+      if (allowed instanceof RegExp) return allowed.test(origin);
       return origin === allowed;
     });
-    
+
     if (isAllowed) {
       callback(null, true);
     } else {
+      console.warn('CORS blocked origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -40,6 +41,8 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 
+// Handle preflight OPTIONS requests explicitly
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(express.json());
 
@@ -61,7 +64,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('✅ MongoDB connected');
     app.listen(process.env.PORT || 5000, () =>
-      console.log(`🚀 Server on port ${process.env.PORT || 5000}`)
+      console.log('🚀 Server on port ' + (process.env.PORT || 5000))
     );
   })
   .catch((err) => { console.error('❌ MongoDB error:', err.message); process.exit(1); });

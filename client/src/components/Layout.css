@@ -1,6 +1,15 @@
 .app-layout { display: flex; min-height: 100vh; }
-.main-area { margin-left: 72px; min-height: 100vh; display: flex; flex-direction: column; flex: 1; position: relative; z-index: 1; }
+.main-area {
+  margin-left: 72px; min-height: 100vh;
+  display: flex; flex-direction: column; flex: 1; position: relative; z-index: 1;
+}
 .page-content { padding: 36px 32px; flex: 1; }
+
+/* Legacy names */
+.app-shell { display: flex; min-height: 100vh; }
+.main { margin-left: 72px; min-height: 100vh; display: flex; flex-direction: column; flex: 1; }
+
+/* FAB */
 .fab {
   position: fixed; bottom: 28px; right: 28px;
   width: 52px; height: 52px; border-radius: 50%;
@@ -11,6 +20,18 @@
 }
 .fab:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 12px 32px rgba(79,70,229,0.5); }
 
-/* Keep old names for backward compatibility */
-.app-shell { display: flex; min-height: 100vh; }
-.main { margin-left: 72px; min-height: 100vh; display: flex; flex-direction: column; flex: 1; }
+/* Mobile layout */
+@media (max-width: 768px) {
+  .main-area {
+    margin-left: 0;
+    padding-top: 56px;  /* height of mobile topbar */
+    padding-bottom: 64px; /* height of mobile bottom nav */
+  }
+  .main { margin-left: 0; }
+  .page-content { padding: 20px 16px; }
+  .fab { bottom: 80px; } /* above bottom nav */
+}
+
+@media (max-width: 480px) {
+  .page-content { padding: 16px 12px; }
+}

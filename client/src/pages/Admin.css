@@ -284,3 +284,27 @@
 .cup-field input { border: 1.5px solid rgba(10,10,20,0.12); border-radius: 8px; padding: 7px 10px; font-size: 13px; outline: none; }
 .cup-actions { display: flex; gap: 8px; margin-bottom: 8px; }
 .cup-note { font-size: 12px; color: rgba(10,10,20,0.45); line-height: 1.5; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .page-header, .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  table { font-size: 13px; }
+  th, td { padding: 10px 8px; }
+}
+@media (max-width: 480px) {
+  .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr !important; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* Admin specific mobile */
+@media (max-width: 768px) {
+  .admin-stats { grid-template-columns: repeat(2, 1fr) !important; }
+  .admin-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .admin-tabs { flex-wrap: wrap; gap: 6px; }
+  .admin-tab { font-size: 12px; padding: 6px 12px; }
+}
+@media (max-width: 480px) {
+  .admin-stats { grid-template-columns: 1fr !important; }
+}

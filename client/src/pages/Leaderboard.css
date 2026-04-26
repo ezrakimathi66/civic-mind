@@ -93,3 +93,16 @@
 [data-theme="dark"] .lb-xp-full {
   color:var(--electric-light);
 }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .page-header, .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  table { font-size: 13px; }
+  th, td { padding: 10px 8px; }
+}
+@media (max-width: 480px) {
+  .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr !important; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}

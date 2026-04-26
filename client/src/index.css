@@ -177,3 +177,33 @@ body {
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.3);
 }
+
+/* ── GLOBAL MOBILE UTILITIES ── */
+@media (max-width: 768px) {
+  /* Prevent text overflow everywhere */
+  h1, h2, h3, h4 { word-break: break-word; }
+
+  /* Cards that overflow on mobile */
+  .card, [class*="-card"] {
+    min-width: 0;
+  }
+
+  /* Tables scroll horizontally */
+  .table-wrap, .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modals fit on small screens */
+  .modal-box {
+    width: 95%;
+    padding: 28px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Buttons full-width in column layouts */
+  .btn-row { flex-direction: column; gap: 10px; }
+  .btn-row .btn-primary,
+  .btn-row .btn-secondary { width: 100%; justify-content: center; }
+}
