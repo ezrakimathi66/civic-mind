@@ -1,0 +1,75 @@
+.loading-center { display:flex; justify-content:center; align-items:center; height:60vh; }
+.page-header { margin-bottom:28px; }
+.page-title { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; letter-spacing:-0.03em; margin-bottom:4px; }
+.page-sub { font-size:14px; color:rgba(10,10,20,0.5); }
+.progress-summary-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px; }
+.summary-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius); padding:24px; text-align:center; }
+.summary-icon { font-size:28px; margin-bottom:12px; }
+.summary-value { font-family:'Syne',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.04em; margin-bottom:6px; }
+.summary-label { font-size:12px; font-family:var(--mono); color:rgba(10,10,20,0.45); }
+.section-title-row { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; margin-bottom:16px; }
+.progress-course-list { display:flex; flex-direction:column; gap:12px; }
+.progress-course-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius); padding:20px 24px; display:flex; align-items:center; gap:20px; cursor:pointer; transition:all 0.2s; }
+.progress-course-card:hover { border-color:var(--electric); box-shadow:var(--shadow); }
+.pcc-icon { width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pcc-body { flex:1; }
+.pcc-title { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; margin-bottom:6px; }
+.pcc-meta { display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+.meta-pill { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-family:var(--mono); background:var(--cream); border-radius:4px; padding:3px 8px; color:rgba(10,10,20,0.6); }
+.pcc-bar-row { display:flex; align-items:center; gap:10px; }
+.pbar-track-light { flex:1; height:6px; background:var(--cream); border-radius:10px; overflow:hidden; }
+.mini-pct { font-size:12px; font-family:var(--mono); color:rgba(10,10,20,0.5); width:36px; }
+.pcc-xp { font-family:var(--mono); font-size:14px; color:var(--electric); font-weight:700; white-space:nowrap; }
+.empty-state { text-align:center; padding:60px 20px; background:white; border:1.5px solid var(--border); border-radius:var(--radius); }
+@media (max-width:768px) { .progress-summary-grid { grid-template-columns:repeat(2,1fr); } }
+
+.progress-lb-banner { background: linear-gradient(135deg, #4f46e5, #6366f1); color: white; border-radius: 16px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.plb-left { display: flex; align-items: center; gap: 16px; }
+.plb-rank { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; }
+.plb-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; }
+.plb-sub { font-size: 13px; opacity: 0.85; margin-top: 2px; }
+.plb-arrow { font-size: 13px; font-weight: 600; opacity: 0.9; }
+.pcc-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.btn-small-primary { background: var(--electric); color: white; border: none; border-radius: 8px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.exam-results-list { display: flex; flex-direction: column; gap: 12px; }
+.exam-result-row { background: var(--surface); border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; border: 1px solid rgba(10,10,20,0.06); }
+.er-icon { font-size: 28px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #f5f3ee; border-radius: 12px; }
+.er-body { flex: 1; }
+.er-title { font-weight: 700; font-size: 15px; }
+.er-exam { font-size: 13px; color: rgba(10,10,20,0.5); margin-top: 2px; }
+.er-right { text-align: right; }
+.er-score { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; }
+.er-grade { font-size: 13px; color: rgba(10,10,20,0.5); }
+.er-status { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 10px; margin-top: 4px; }
+.er-status.pass { background: #d1fae5; color: #059669; }
+.er-status.fail { background: #fee2e2; color: #dc2626; }
+
+/* Dark mode */
+[data-theme="dark"] .page-title { color: var(--ink); }
+[data-theme="dark"] .page-sub { color: rgba(229,231,235,0.6); }
+[data-theme="dark"] .summary-card { background: var(--cream); border-color: var(--border); color: var(--ink); }
+[data-theme="dark"] .summary-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+[data-theme="dark"] .summary-icon { color: var(--electric); }
+[data-theme="dark"] .summary-value { color: var(--ink); }
+[data-theme="dark"] .summary-label { color: rgba(229,231,235,0.5); }
+[data-theme="dark"] .section-title-row { color: var(--ink); }
+[data-theme="dark"] .progress-course-card { background: var(--cream); border-color: var(--border); color: var(--ink); }
+[data-theme="dark"] .progress-course-card:hover { border-color: var(--electric-light); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+[data-theme="dark"] .pcc-title { color: var(--ink); }
+[data-theme="dark"] .meta-pill { background: rgba(129,140,248,0.15); color: rgba(229,231,235,0.7); }
+[data-theme="dark"] .pbar-track-light { background: rgba(129,140,248,0.15); }
+[data-theme="dark"] .mini-pct { color: rgba(229,231,235,0.6); }
+[data-theme="dark"] .pcc-xp { color: var(--electric-light); }
+[data-theme="dark"] .empty-state { background: var(--cream); border-color: var(--border); color: var(--ink); }
+[data-theme="dark"] .progress-lb-banner { background: linear-gradient(135deg, var(--electric), var(--electric-light)); color: white; }
+[data-theme="dark"] .plb-title { color: white; }
+[data-theme="dark"] .plb-sub { color: rgba(255,255,255,0.8); }
+[data-theme="dark"] .exam-results-list { background: transparent; }
+[data-theme="dark"] .exam-result-row { background: var(--cream); border-color: var(--border); color: var(--ink); }
+[data-theme="dark"] .er-icon { background: rgba(129,140,248,0.15); color: var(--electric); }
+[data-theme="dark"] .er-title { color: var(--ink); }
+[data-theme="dark"] .er-exam { color: rgba(229,231,235,0.55); }
+[data-theme="dark"] .er-score { color: var(--ink); }
+[data-theme="dark"] .er-grade { color: rgba(229,231,235,0.55); }
+[data-theme="dark"] .er-status.pass { background: #065f46; color: #d1fae5; }
+[data-theme="dark"] .er-status.fail { background: #7f1d1d; color: #fca5a5; }

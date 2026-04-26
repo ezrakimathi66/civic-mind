@@ -1,0 +1,63 @@
+.loading-center { display:flex; justify-content:center; align-items:center; height:60vh; }
+.page-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:28px; gap:20px; flex-wrap:wrap; }
+.page-title { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; letter-spacing:-0.03em; margin-bottom:4px; }
+.page-sub { font-size:14px; color:rgba(10,10,20,0.5); }
+.search-inline { display:flex; align-items:center; gap:8px; background:white; border:1.5px solid var(--border); border-radius:40px; padding:10px 16px; width:280px; }
+.search-inline input { border:none; outline:none; font-family:'DM Sans',sans-serif; font-size:14px; flex:1; background:transparent; }
+.filter-chips { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+.chip { display:inline-flex; align-items:center; gap:6px; padding:7px 15px; border-radius:40px; font-size:13px; font-weight:500; cursor:pointer; border:1.5px solid var(--border); background:white; transition:all 0.18s; }
+.chip:hover { border-color:var(--electric); color:var(--electric); }
+.chip.active { background:var(--ink); color:white; border-color:var(--ink); }
+.meta-pill { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-family:var(--mono); background:var(--cream); border-radius:4px; padding:3px 8px; color:rgba(10,10,20,0.6); }
+.courses-grid { display:flex; flex-direction:column; gap:16px; }
+.course-row-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius); padding:20px 24px; display:flex; align-items:center; gap:20px; cursor:pointer; transition:all 0.2s; }
+.course-row-card:hover { border-color:var(--electric); box-shadow:var(--shadow); transform:translateY(-2px); }
+.course-icon-wrap { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.course-row-body { flex:1; }
+.course-row-title { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; margin-bottom:4px; }
+.course-row-desc { font-size:13px; color:rgba(10,10,20,0.55); margin-bottom:10px; line-height:1.5; }
+.course-row-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+.course-row-progress { display:flex; align-items:center; gap:10px; }
+.pbar-track-light { flex:1; height:4px; background:var(--cream); border-radius:10px; overflow:hidden; }
+.mini-pct { font-size:11px; font-family:var(--mono); color:rgba(10,10,20,0.5); width:30px; }
+
+/* Locked course styles */
+.course-row-card.course-locked {
+  opacity:0.7;
+  cursor:not-allowed;
+}
+
+.enrollment-coming-soon {
+  font-size:12px;
+  color:var(--amber);
+  font-weight:600;
+  margin-bottom:8px;
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+.btn-disabled {
+  cursor:not-allowed !important;
+}
+
+/* Dark mode */
+[data-theme="dark"] .page-title { color: var(--ink); }
+[data-theme="dark"] .page-sub { color: rgba(229,231,235,0.6); }
+[data-theme="dark"] .search-inline { background: var(--cream); border-color: var(--border); }
+[data-theme="dark"] .search-inline input { color: var(--ink); background: var(--cream); }
+[data-theme="dark"] .search-inline input::placeholder { color: rgba(229,231,235,0.5); }
+[data-theme="dark"] .chip { background: var(--cream); color: var(--ink); border-color: var(--border); }
+[data-theme="dark"] .chip:hover { border-color: var(--electric-light); color: var(--electric-light); }
+[data-theme="dark"] .chip.active { background: var(--electric); color: white; border-color: var(--electric); }
+[data-theme="dark"] .meta-pill { background: rgba(129,140,248,0.15); color: rgba(229,231,235,0.7); }
+[data-theme="dark"] .course-row-card { background: var(--cream); border-color: var(--border); }
+[data-theme="dark"] .course-row-card:hover { border-color: var(--electric-light); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+[data-theme="dark"] .course-row-title { color: var(--ink); }
+[data-theme="dark"] .course-row-desc { color: rgba(229,231,235,0.65); }
+[data-theme="dark"] .pbar-track-light { background: rgba(129,140,248,0.15); }
+[data-theme="dark"] .mini-pct { color: rgba(229,231,235,0.6); }
+
+[data-theme="dark"] .enrollment-coming-soon { color: #fbbf24; }
+
+[data-theme="dark"] .course-row-card.course-locked { opacity: 0.6; }

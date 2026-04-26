@@ -1,0 +1,16 @@
+.app-layout { display: flex; min-height: 100vh; }
+.main-area { margin-left: 72px; min-height: 100vh; display: flex; flex-direction: column; flex: 1; position: relative; z-index: 1; }
+.page-content { padding: 36px 32px; flex: 1; }
+.fab {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--electric); color: white; border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; cursor: pointer;
+  box-shadow: 0 8px 24px rgba(79,70,229,0.4); transition: all 0.2s; z-index: 200;
+}
+.fab:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 12px 32px rgba(79,70,229,0.5); }
+
+/* Keep old names for backward compatibility */
+.app-shell { display: flex; min-height: 100vh; }
+.main { margin-left: 72px; min-height: 100vh; display: flex; flex-direction: column; flex: 1; }
