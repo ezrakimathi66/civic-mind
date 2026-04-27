@@ -76,7 +76,7 @@ export default function Landing() {
         <div className="hero-content">
           <div className="hero-tag fade-up fade-up-1">
             <span className="hero-dot" />
-            Digital Citizenship Education Platform
+            Digital Citizenship Awareness Education Platform
           </div>
           <h1 className="hero-title fade-up fade-up-2">
             Learn to Navigate<br />

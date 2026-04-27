@@ -70,7 +70,7 @@ export default function Dashboard() {
         <div className="hero-left">
           <div className="hero-tag">🟢 Active Learner · Week {user?.streak || 1}</div>
           <h1 className="hero-title">
-            Learn <em>Digital</em><br />Citizenship
+            Learn <em>Digital</em><br />Citizenship Awareness
           </h1>
           <p className="hero-sub">
             Build the skills to navigate, communicate, and thrive in digital spaces — safely and ethically.
